@@ -9,6 +9,13 @@ class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
-    list_display = ['email', 'username',]
-
+    list_display = ['username', 'email', 'is_active','is_superuser']
+    fieldsets = (
+        (("Auth Info"),{
+            'fields':('username','password','email')
+        }),
+        ('user description',{'fields':('first_name','last_name','description')}),
+        ('User Premissions',{'fields':('is_active','is_superuser')})
+        )
+    
 admin.site.register(CustomUser, CustomUserAdmin)

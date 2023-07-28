@@ -1,0 +1,8 @@
+{% extends '_base.html' %}
+{% block content %}
+<h1>Snack details</h1>
+<h3>title : {{snack.name|capfirst}}</h3>
+<h3>purchaser : {{snack.purchaser|capfirst}}</h3>
+<h3>description : {{snack.description}}</h3>
+
+{% endblock %}
