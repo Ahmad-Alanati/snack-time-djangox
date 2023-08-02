@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+{% block content %}
+<h1>Snack List</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Link</th>
+        <th>update</th>
+        <th>delete</th>
+    </tr>
+    {% for snack in object_list %}
+    <tr>
+        <td>{{snack.name|capfirst}}</td>
+        <td><a href="{% url 'snack_detail' snack.id %}">Detail</a></td>
+        <td><a href="{% url 'update_snack' snack.id %}">update</a></td>
+        <td><a href="{% url 'delete_snack' snack.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<ul>
+    <li>make a snack <a href="{% url 'create_snack' %}">add a snack</a></li>
+</ul>
+{% endblock %}
